@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8">
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Let's Go</title>
 
-    <link rel="stylesheet" href="lib/bootstrap-3.2.0-dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../lib/bootstrap-3.2.0-dist/css/bootstrap.css"/>
 
-    <script type="text/javascript" src="lib/jquery-2.1.1/jquery-2.1.1.js"></script>
-    <script type="text/javascript" src="lib/bootstrap-3.2.0-dist/js/bootstrap.js"></script>
-    <script type="text/javascript" src="lib/lodash-2.4.1/lodash.compat.js"></script>
+    <script type="text/javascript" src="../lib/jquery-2.1.1/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap-3.2.0-dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../lib/lodash-2.4.1/lodash.compat.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-default" role="navigation">
@@ -28,14 +28,15 @@
         <div class="collapse navbar-collapse" role="navigation">
             <ul class="nav navbar-nav">
                 <li class="active">
-                    <a href="html/main.html">主页</a>
+                    <a href="#">主页</a>
                 </li>
-                <li><a href="html/list.html">商品列表</a></li>
+                <li><a href="list.html">商品列表</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="html/cart.html"><span class="glyphicon glyphicon-shopping-cart"></span>购物车
+                    <a href="cart.html">
+                        <span class="glyphicon glyphicon-shopping-cart"></span>购物车
                         (<span id="amount">0</span>)
                     </a>
                 </li>
@@ -43,7 +44,6 @@
         </div>
     </div>
 </nav>
-
 <div class="container jumbotron">
     <h1>Welcome to Let's Go!</h1>
 
@@ -55,7 +55,7 @@
         输入，然后在浏览器的控制台中输出结算清单的文本。
     </p>
 
-    <p><a class="btn btn-primary btn-lg" role="button" href="html/list.html">Let's Go</a></p>
+    <p><a class="btn btn-primary btn-lg" role="button" href="list.html">Let's Go</a></p>
 </div>
 </body>
 </html>
