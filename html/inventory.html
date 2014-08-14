@@ -11,6 +11,7 @@
     <script type="text/javascript" src="../lib/jquery-2.1.1/jquery-2.1.1.js"></script>
     <script type="text/javascript" src="../lib/bootstrap-3.2.0-dist/js/bootstrap.js"></script>
     <script type="text/javascript" src="../lib/lodash-2.4.1/lodash.compat.js"></script>
+    <script type="text/javascript" src="../lib/moment-2.8.1/moment-with-locales.js"></script>
 
     <script type="text/javascript" src="../js/model/item.js"></script>
     <script type="text/javascript" src="../js/model/cart-item.js"></script>
@@ -59,8 +60,21 @@
         <div class="panel-heading">
             <h4>购物清单</h4>
         </div>
-        <div class="panel-body">
-
+        <div class="panel-body" id="inventory">
+            <span id="curdate"></span>
+            <table id="inventory-table" class="table table-responsive table-bordered text-center">
+                <tr>
+                    <th class="text-center">分类</th>
+                    <th class="text-center">名称</th>
+                    <th class="text-center">单价(元)</th>
+                    <th class="text-center">单位</th>
+                    <th class="text-center">数量</th>
+                    <th class="text-center">小计</th>
+                </tr>
+            </table>
+            <div class="text-right">
+                <label>总计：<span id="inventorytotal">204.00元</span></label>
+            </div>
         </div>
     </div>
     <div class="text-right">
