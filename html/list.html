@@ -11,6 +11,8 @@
     <script type="text/javascript" src="../lib/jquery-2.1.1/jquery-2.1.1.js"></script>
     <script type="text/javascript" src="../lib/bootstrap-3.2.0-dist/js/bootstrap.js"></script>
     <script type="text/javascript" src="../lib/lodash-2.4.1/lodash.compat.js"></script>
+
+    <script type="text/javascript" src="../js/myjs.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-default" role="navigation">
@@ -37,7 +39,7 @@
                 <li>
                     <a href="cart.html">
                         <span class="glyphicon glyphicon-shopping-cart"></span>购物车
-                        (<span id="amount">0</span>)
+                        (<span class="amount">0</span>)
                     </a>
                 </li>
             </ul>
@@ -63,64 +65,41 @@
                     <td>雪碧</td>
                     <td>3.00</td>
                     <td>瓶</td>
-                    <td><input type="button" value="加入购物车"></td>
+                    <td>
+                        <input class="btn btn-primary btn-sm addcart" type="button" value="加入购物车">
+                    </td>
                 </tr>
                 <tr>
                     <td>饮料</td>
                     <td>可口可乐</td>
                     <td>3.00</td>
                     <td>瓶</td>
-                    <td><input type="button" value="加入购物车"></td>
+                    <td><input class="btn btn-primary btn-sm addcart" type="button" value="加入购物车"></td>
                 </tr>
                 <tr>
                     <td>水果</td>
                     <td>荔枝</td>
                     <td>15.00</td>
                     <td>千克</td>
-                    <td><input type="button" value="加入购物车"></td>
+                    <td><input class="btn btn-primary btn-sm addcart" type="button" value="加入购物车"></td>
                 </tr>
                 <tr>
                     <td>水果</td>
                     <td>苹果</td>
                     <td>15.00</td>
                     <td>千克</td>
-                    <td><input type="button" value="加入购物车"></td>
+                    <td><input class="btn btn-primary btn-sm addcart" type="button" value="加入购物车"></td>
                 </tr>
                 <tr>
                     <td>水果</td>
                     <td>香蕉</td>
                     <td>15.00</td>
                     <td>千克</td>
-                    <td><input type="button" value="加入购物车"></td>
+                    <td><input class="btn btn-primary btn-sm addcart" type="button" value="加入购物车"></td>
                 </tr>
             </table>
         </div>
     </div>
-    <!--<div class="panel panel-default">-->
-        <!--<div class="panel-body">-->
-            <!--<div class="row">-->
-                <!--<div class="col-md-3">分类</div>-->
-                <!--<div class="col-md-3">名称</div>-->
-                <!--<div class="col-md-2">单价(元)</div>-->
-                <!--<div class="col-md-2">单位</div>-->
-                <!--<div class="col-md-2"></div>-->
-            <!--</div>-->
-            <!--<div class="row">-->
-                <!--<div class="col-md-3">饮料</div>-->
-                <!--<div class="col-md-3">雪碧</div>-->
-                <!--<div class="col-md-2">3.00</div>-->
-                <!--<div class="col-md-2">瓶</div>-->
-                <!--<div class="col-md-2"><input type="button" value="加入购物车"></div>-->
-            <!--</div>-->
-            <!--<div class="row">-->
-                <!--<div class="col-md-3">水果</div>-->
-                <!--<div class="col-md-3">荔枝</div>-->
-                <!--<div class="col-md-2">15.00</div>-->
-                <!--<div class="col-md-2">千克</div>-->
-                <!--<div class="col-md-2"><input type="button" value="加入购物车"></div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
 </div>
 </body>
 </html>
