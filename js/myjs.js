@@ -54,7 +54,11 @@ $(document).ready(function () {
                         '<tr><td>' + category[i].item.name
                         + '</td><td>' + category[i].item.price
                         + '</td><td>' + category[i].item.unit
-                        + '</td><td>' + category[i].num
+                        + '</td><td>' + '<div class="btn-group">'
+                        + '<button type="button" class="btn btn-default">-</button>'
+                        + '<button type="button" class="btn btn-default" disabled="disabled">'
+                        + category[i].num +'</button>'
+                        + '<button type="button" class="btn btn-default">+</button></div>'
                         + '</td><td>' + (category[i].item.price * category[i].num) + '</td></tr>'
                 );
             }
