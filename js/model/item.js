@@ -5,3 +5,9 @@ function Item(barcode, name, unit, price,category) {
     this.price = price || 0.00;
     this.category = category;
 }
+
+Item.prototype.storageItem = function() {
+    var itemCount = Number(localStorage.getItem('itemCount'));
+    localStorage.setItem('item'+itemCount,JSON.stringify(this));
+    localStorage.itemCount = +localStorage.itemCount + 1;
+};
