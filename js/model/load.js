@@ -2,9 +2,9 @@
  * Created by zhangwei on 14-8-14.
  */
 function loadAllItems() {
-    localStorage.setItem('amounts',0);
-    localStorage.setItem('itemCount',0);
-    localStorage.setItem('cartItemCount',0);
+    Storage.addItem('amounts',0);
+    Storage.addItem('itemCount',0);
+    Storage.addItem('cartItemCount',0);
     var item1 = new Item('ITEM000000', '可口可乐', '瓶', 3.00, '饮料');
     item1.storageItem();
     var item2 = new Item('ITEM000001', '雪碧', '瓶', 3.00, '饮料');
@@ -20,22 +20,22 @@ function loadAllItems() {
 }
 
 function getItemCount(){
-    return Number(localStorage.itemCount);
+    return Number(Storage.getItem('itemCount'));
 }
 
 function getStorageItem(item){
-    return JSON.parse(localStorage.getItem(item));
+    return JSON.parse(Storage.getItem(item));
 }
 
 function getAmounts(){
-    return localStorage.amounts;
+    return Number(Storage.getItem('amounts'));
 }
 
 function cleanStorage(){
-    for(var i = 0; i < localStorage.cartItemCount; i++){
-        localStorage.removeItem('cartItem' + i);
+    for(var i = 0; i < Number(Storage.getItem('cartItemCount')); i++){
+        Storage.removeItem('cartItem' + i);
     }
-    localStorage.setItem('amounts',0);
-    localStorage.setItem('cartItemCount',0);
+    Storage.addItem('amounts',0);
+    Storage.addItem('cartItemCount',0);
     $('.amount').text(getAmounts());
 }

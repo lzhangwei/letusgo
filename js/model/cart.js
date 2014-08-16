@@ -4,9 +4,9 @@
 function Cart(){
     var init = function (cartItemList) {
 
-        for(var i = 0; i < localStorage.cartItemCount; i++){
+        for(var i = 0; i < Number(Storage.getItem('cartItemCount')); i++){
             cartItemList.push(
-                JSON.parse(localStorage.getItem('cartItem' + i)));
+                JSON.parse(Storage.getItem('cartItem' + i)));
         }
 
     };
@@ -18,7 +18,7 @@ function Cart(){
 
 Cart.prototype.storageCartItemList = function() {
     for(var i = 0; i < this.cartItemList.length; i++){
-        localStorage.setItem('cartItem'+i,JSON.stringify(this.cartItemList[i]));
+        Storage.addItem('cartItem'+i,JSON.stringify(this.cartItemList[i]));
     }
 };
 
@@ -39,9 +39,11 @@ Cart.prototype.addCartItem = function(curitem) {
     }else{
         var cartItem = new CartItem(curitem,1);
         this.cartItemList.push(cartItem);
-        localStorage.cartItemCount = +localStorage.cartItemCount + 1;
+        var t1 = +Storage.getItem('cartItemCount') + 1;
+        Storage.addItem('cartItemCount',t1);
     }
-    localStorage.amounts = +localStorage.amounts + 1;
+    var t2 = +Storage.getItem('amounts') + 1;
+    Storage.addItem('amounts',t2);
 };
 
 Cart.prototype.removeCartItem = function(storageItem) {
