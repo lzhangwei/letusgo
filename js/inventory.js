@@ -4,7 +4,7 @@
 $(document).ready(function () {
 
     $('.amount').text(getAmounts());
-    
+
     $('.payok').on('click', function () {
         cleanStorage();
         $('.amount').text(0);
