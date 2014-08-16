@@ -2,6 +2,8 @@
  * Created by zhangwei on 14-8-14.
  */
 function loadAllItems() {
+    Storage.removeItem('items');
+    Storage.removeItem('cartItems');
     Storage.addItem('amounts',0);
     Storage.addItem('itemCount',0);
     Storage.addItem('cartItemCount',0);
@@ -19,12 +21,8 @@ function loadAllItems() {
     item6.storageItem();
 }
 
-function getItemCount(){
-    return Number(Storage.getItem('itemCount'));
-}
-
-function getStorageItem(item){
-    return JSON.parse(Storage.getItem(item));
+function getItemList(name){
+    return Storage.getArrayItem(name);
 }
 
 function getAmounts(){
@@ -32,10 +30,7 @@ function getAmounts(){
 }
 
 function cleanStorage(){
-    for(var i = 0; i < Number(Storage.getItem('cartItemCount')); i++){
-        Storage.removeItem('cartItem' + i);
-    }
+    Storage.removeItem('cartItems');
     Storage.addItem('amounts',0);
-    Storage.addItem('cartItemCount',0);
     $('.amount').text(getAmounts());
 }

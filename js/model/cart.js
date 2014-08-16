@@ -2,25 +2,8 @@
  * Created by zhangwei on 14-8-15.
  */
 function Cart(){
-    var init = function (cartItemList) {
-
-        for(var i = 0; i < Number(Storage.getItem('cartItemCount')); i++){
-            cartItemList.push(
-                JSON.parse(Storage.getItem('cartItem' + i)));
-        }
-
-    };
-
-    this.cartItemList = [];
-
-    init(this.cartItemList);
+    this.cartItemList = Storage.getArrayItem('cartItems') || [];
 }
-
-Cart.prototype.storageCartItemList = function() {
-    for(var i = 0; i < this.cartItemList.length; i++){
-        Storage.addItem('cartItem'+i,JSON.stringify(this.cartItemList[i]));
-    }
-};
 
 Cart.prototype.getCartItemList = function() {
 
@@ -30,17 +13,14 @@ Cart.prototype.getCartItemList = function() {
 Cart.prototype.addCartItem = function(curitem) {
 
     var curCartItem = _.find(this.cartItemList, {'item':curitem});
+
     if(curCartItem!==undefined){
-        _.find(this.cartItemList,function(object){
-            if(object.item.barcode === curitem.barcode){
-                object.num++;
-            }
-        });
+        curCartItem.num++;
+        Storage.changeArrayItem('cartItems',curCartItem);
     }else{
         var cartItem = new CartItem(curitem,1);
         this.cartItemList.push(cartItem);
-        var t1 = +Storage.getItem('cartItemCount') + 1;
-        Storage.addItem('cartItemCount',t1);
+        Storage.addArrayItem('cartItems',cartItem);
     }
     var t2 = +Storage.getItem('amounts') + 1;
     Storage.addItem('amounts',t2);

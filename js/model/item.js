@@ -7,8 +7,5 @@ function Item(barcode, name, unit, price,category) {
 }
 
 Item.prototype.storageItem = function() {
-    var itemCount = Number(Storage.getItem('itemCount'));
-    Storage.addItem('item'+itemCount,JSON.stringify(this));
-    var t = +Storage.getItem('itemCount') + 1;
-    Storage.addItem('itemCount',t);
+    Storage.addArrayItem('items',this);
 };
