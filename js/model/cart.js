@@ -26,13 +26,16 @@ Cart.prototype.addCartItem = function(curitem) {
     Storage.addItem('amounts',t2);
 };
 
-Cart.prototype.removeCartItem = function(storageItem) {
-    var curitem = JSON.parse(storageItem);
-    _.find(this.cartItemList,function(object){
-        if(object.item.barcode === curitem.barcode){
-            object.num--;
-        }
-    });
+Cart.prototype.reduceCartItem = function(curitem) {
+    var curCartItem = _.find(this.cartItemList, {'item':curitem});
+    curCartItem.num--;
+    if(curCartItem.num > 0){
+        Storage.changeArrayItem('cartItems',curCartItem);
+    } else {
+        Storage.removeInArray('cartItems',curCartItem);
+    }
+    var t2 = +Storage.getItem('amounts') - 1;
+    Storage.addItem('amounts',t2);
 };
 
 Cart.prototype.categoryCartItem = function() {

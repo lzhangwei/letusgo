@@ -5,8 +5,7 @@ function loadAllItems() {
     Storage.removeItem('items');
     Storage.removeItem('cartItems');
     Storage.addItem('amounts',0);
-    Storage.addItem('itemCount',0);
-    Storage.addItem('cartItemCount',0);
+
     var item1 = new Item('ITEM000000', '可口可乐', '瓶', 3.00, '饮料');
     item1.storageItem();
     var item2 = new Item('ITEM000001', '雪碧', '瓶', 3.00, '饮料');

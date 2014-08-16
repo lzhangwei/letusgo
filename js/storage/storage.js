@@ -40,9 +40,10 @@ Storage.getItem = function(name){
 }
 
 Storage.removeInArray = function(name,item){
-    if(localStorage.name!==undefined){
-        var list=JSON.parse(localStorage[name]);
-        _.remove(list,function(i){return i===item});
+    if(localStorage.getItem(name)!==undefined){
+        var list=JSON.parse(localStorage.getItem(name));
+        _.remove(list,function(i){return i.item.barcode===item.item.barcode});
+        localStorage.setItem(name,JSON.stringify(list));
     }
 }
 
