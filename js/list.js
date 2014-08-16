@@ -16,8 +16,8 @@ $(document).ready(function () {
         var cart = new Cart();
         $('.addcart').on('click', function () {
             var itemid = +$(this)[0].id.substring(4);
-            var cartItem = Storage.getArrayItem('items')[itemid];
-            cart.addCartItem(cartItem);
+            var item = Storage.getArrayItem('items')[itemid];
+            cart.addCartItem(item);
 
             $('.amount').text(getAmounts());
         });

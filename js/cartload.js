@@ -51,6 +51,11 @@ $(document).ready(function(){
                     } else {
                         if(cartItemGroup[ii].length === 1){
                             $('#cartpanel' + ii).remove();
+                            if(cart.cartItemList.length === 0){
+                                cartItemGroup = [];
+                                $('#cartfoot').remove();
+                                addFoot(cartItemGroup);
+                            }
                         } else {
                             $('#cartpaneltable' + ii + jj).remove();
                         }
@@ -74,6 +79,23 @@ $(document).ready(function(){
             }
             $('#total').text(sumprice);
         }
+
+        addFoot(cartItemGroup);
+
     }
 
 });
+
+function addFoot(cartItemGroup){
+    if(cartItemGroup.length === 0) {
+        $('#cartpanels').append(
+                '<div class="text-center"><div><span>购物车中没有商品！</span></div>'
+                +'<a class="btn btn-primary btn-lg" role="button" href="list.html">返回商城添加商品</a></div>'
+        );
+    } else {
+        $('#cartpanels').append(
+                '<div id="cartfoot" class="text-right"><label>总计：<span id="total">0.00元</span></label><div>'
+                +'<a class="btn btn-primary btn-lg" role="button" href="inventory.html">付款</a></div></div>'
+        );
+    }
+}

@@ -27,12 +27,13 @@ Cart.prototype.addCartItem = function(curitem) {
 };
 
 Cart.prototype.reduceCartItem = function(curitem) {
-    var curCartItem = _.find(this.cartItemList, {'item':curitem});
-    curCartItem.num--;
-    if(curCartItem.num > 0){
-        Storage.changeArrayItem('cartItems',curCartItem);
+    var index = _.findIndex(this.cartItemList,{'item':curitem});
+    this.cartItemList[index].num--;
+    if(this.cartItemList[index].num > 0){
+        Storage.changeArrayItem('cartItems',this.cartItemList[index]);
     } else {
-        Storage.removeInArray('cartItems',curCartItem);
+        Storage.removeInArray('cartItems',this.cartItemList[index]);
+        _.remove(this.cartItemList,this.cartItemList[index]);
     }
     var t2 = +Storage.getItem('amounts') - 1;
     Storage.addItem('amounts',t2);
