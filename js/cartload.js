@@ -38,7 +38,7 @@ $(document).ready(function(){
                         + '<button id="cartItemNums' + k + i + '" type="button" class="btn btn-default" disabled="disabled">'
                         + category[i].num +'</button>'
                         + '<button id="cartItemAdd' + k + i + '" type="button" class="btn btn-default">+</button></div>'
-                        + '</td><td>' + (category[i].item.price * category[i].num) + '</td></tr>'
+                        + '</td><td id="cartpaneltablesmallcal'+k+i+'">' + (category[i].item.price * category[i].num) + '</td></tr>'
                 );
 
                 $('#cartItemRemove'+k+i).on('click', function () {
@@ -60,6 +60,7 @@ $(document).ready(function(){
                             $('#cartpaneltable' + ii + jj).remove();
                         }
                     }
+                    $('#cartpaneltablesmallcal'+ii+jj).text(cartItem.item.price * cartItem.num);
                     $('.amount').text(getAmounts());
                     sumprice -= cartItem.item.price;
                     $('#total').text(sumprice);
@@ -71,6 +72,7 @@ $(document).ready(function(){
                     var cartItem = cartItemGroup[ii][jj];
                     cart.addCartItem(cartItem.item);
                     $('#cartItemNums'+ii+jj).text(+$('#cartItemNums'+ii+jj).text() + 1);
+                    $('#cartpaneltablesmallcal'+ii+jj).text(cartItem.item.price * cartItem.num);
                     $('.amount').text(getAmounts());
                     sumprice += cartItem.item.price;
                     $('#total').text(sumprice);
