@@ -3,6 +3,7 @@
  */
 $(document).ready(function(){
 
+    $('.amount').text(getAmounts());
     var sumprice = 0;
     var cart = new Cart();
     var cartItemGroup = cart.categoryCartItem();
@@ -44,6 +45,7 @@ $(document).ready(function(){
                 $('#cartItemRemove'+k+i).on('click', function () {
                     var ii = +$(this)[0].id.substring(14,15);
                     var jj = +$(this)[0].id.substring(15);
+                    cartItemGroup = cart.categoryCartItem();
                     var cartItem = cartItemGroup[ii][jj];
                     cart.reduceCartItem(cartItem.item);
                     if(+$('#cartItemNums'+ii+jj).text() > 1){
