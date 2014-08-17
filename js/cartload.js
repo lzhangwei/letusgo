@@ -45,7 +45,6 @@ $(document).ready(function(){
                 $('#cartItemRemove'+k+i).on('click', function () {
                     var ii = +$(this)[0].id.substring(14,15);
                     var jj = +$(this)[0].id.substring(15);
-                    cartItemGroup = cart.categoryCartItem();
                     var cartItem = cartItemGroup[ii][jj];
                     cart.reduceCartItem(cartItem.item);
                     if(+$('#cartItemNums'+ii+jj).text() > 1){
@@ -53,13 +52,19 @@ $(document).ready(function(){
                     } else {
                         if(cartItemGroup[ii].length === 1){
                             $('#cartpanel' + ii).remove();
-                            if(cart.cartItemList.length === 0){
-                                cartItemGroup = [];
-                                $('#cartfoot').remove();
-                                addFoot(cartItemGroup);
-                            }
                         } else {
                             $('#cartpaneltable' + ii + jj).remove();
+                            cartItemGroup[ii][jj] = undefined;
+                            if(!_.any(cartItemGroup[ii],function(cartItem){
+                                return cartItem !== undefined;
+                            })){
+                                $('#cartpanel' + ii).remove();
+                            }
+                        }
+                        if(cart.cartItemList.length === 0){
+                            cartItemGroup = [];
+                            $('#cartfoot').remove();
+                            addFoot(cartItemGroup);
                         }
                     }
                     $('#cartpaneltablesmallcal'+ii+jj).text(cartItem.item.price * cartItem.num);
